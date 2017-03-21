@@ -11,7 +11,7 @@ public class Deck {
     /**
      * cards contains all the cards in the deck.
      */
-    private List<Card> cards;
+    public static List<Card> cards;
 
     /**
      * size is the number of not-yet-dealt cards.
@@ -35,9 +35,9 @@ public class Deck {
         cards = new ArrayList<Card>();
 
         for (int i = 0; i < ranks.length; i++) {
-            cards.add(new Card(ranks[i], suits[0], values[i]));
-            cards.add(new Card(ranks[i], suits[1], values[i]));
-            cards.add(new Card(ranks[i], suits[2], values[i]));
+            for(int j=0; j< suits.length; j++){
+                cards.add(new Card(ranks[i], suits[j], values[i]));
+            }
 
         }
 
