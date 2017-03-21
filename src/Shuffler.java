@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * This class provides a convenient way to test shuffling methods.
@@ -33,7 +34,7 @@ public class Shuffler {
 
         System.out.println("Results of " + SHUFFLE_COUNT +
                 " consecutive efficient selection shuffles:");
-        int[] values2 = {0, 1, 2, 3};
+        int[] values2 = {0, 1, 2, 3,};
         for (int j = 1; j <= SHUFFLE_COUNT; j++) {
             selectionShuffle(values2);
             System.out.print("  " + j + ":");
@@ -57,53 +58,33 @@ public class Shuffler {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
         ArrayList one = new ArrayList();
         ArrayList two = new ArrayList();
-        int finala [] = new int[4];
-        int val=0;
-        for(int i=0; i<values.length; i++){
-            if(values[i]%2==0){
+
+        for (int i = 0; i < values.length; i++) {
+            if (i % 2 == 0) {
                 one.add(values[i]);
-            }
-            else{
+            } else {
                 two.add(values[i]);
             }
         }
-        for(int i =0; i<one.size();i++){
-            System.out.print(one.get(i));
-
-
+        for (int i = 0; i < one.size(); i++) {
+            values[i] =(int) one.get(i);
         }
-        System.out.println();
-        for(int i =0; i<one.size();i++){
-            System.out.print(two.get(i));
-
-
+        for (int i = 0; i < two.size(); i++) {
+            values[i+one.size()] =(int) two.get(i);
         }
-       finala[0] = (int ) one.get(0);
-        finala[1] = (int ) two.get(1);
+
+
+
+       /* finala[0] = (int) one.get((int)(Math.random()*one.size()));
+        finala[1] = (int) two.get((int)(Math.random()*two.size()));
+        finala[2] = (int) one.get((int)(Math.random()*one.size()));
+        finala[3] = (int) two.get((int)(Math.random()*two.size()));
         values[0] = finala[0];
         values[1] = finala[1];
+        values[2] = finala[2];
+        values[3] = finala[3];*/
 
 
-        /*for(int i=0; i<one.size(); i++) {
-            int a= (int) one.get(i);
-            int b = (int) one.get((one.size()-i)-1);
-            one.remove(i);
-            one.add(i,b);
-            one.remove((one.size()-i)-1);
-            one.add((one.size()-i)-1,a);
-            values[val]= (int) one.get(i);
-            val++;
-        }
-        for(int i=0; i<two.size(); i++) {
-            int a= (int) two.get(i);
-            int b = (int) two.get((two.size()-i)-1);
-            two.remove(i);
-            two.add(i,b);
-            two.remove((two.size()-i)-1);
-            two.add((two.size()-i)-1,a);
-            values[val]= (int) two.get(i);
-            val++;
-        }*/
 
     }
 
@@ -121,5 +102,34 @@ public class Shuffler {
      */
     public static void selectionShuffle(int[] values) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+        ArrayList one = new ArrayList();
+        ArrayList two = new ArrayList();
+        int finala[] = new int[values.length];
+        int val = 0;
+        for (int i = 0; i < values.length; i++) {
+            if (i % 2 == 0) {
+                one.add(values[i]);
+            } else {
+                two.add(values[i]);
+            }
+        }
+        for (int i = 0; i < values.length; i++) {
+            if (i % 2 == 0) {
+                int cat = (int) (Math.random() * one.size());
+                int dog = (int) one.get(cat);
+                finala[i] = dog;
+                one.remove(cat);
+                values[i] = finala[i];
+            } else {
+                int cat = (int) (Math.random() * two.size());
+                int dog = (int) two.get(cat);
+                finala[i] = dog;
+                two.remove(cat);
+                values[i] = finala[i];
+
+            }
+        }
+
+
     }
 }
