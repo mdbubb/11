@@ -57,6 +57,7 @@ public class Shuffler {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
         ArrayList one = new ArrayList();
         ArrayList two = new ArrayList();
+        int finala [] = new int[4];
         int val=0;
         for(int i=0; i<values.length; i++){
             if(values[i]%2==0){
@@ -77,6 +78,12 @@ public class Shuffler {
 
 
         }
+       finala[0] = (int ) one.get(0);
+        finala[1] = (int ) two.get(1);
+        values[0] = finala[0];
+        values[1] = finala[1];
+
+
         /*for(int i=0; i<one.size(); i++) {
             int a= (int) one.get(i);
             int b = (int) one.get((one.size()-i)-1);
