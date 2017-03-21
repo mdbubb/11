@@ -55,12 +55,48 @@ public class Shuffler {
      */
     public static void perfectShuffle(int[] values) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-        int[] shuffled = new int[4];
-        int[] cards = new int[4];
-        for (int i = 0; i < 2; i++) {
+        ArrayList one = new ArrayList();
+        ArrayList two = new ArrayList();
+        int val=0;
+        for(int i=0; i<values.length; i++){
+            if(values[i]%2==0){
+                one.add(values[i]);
+            }
+            else{
+                two.add(values[i]);
+            }
+        }
+        for(int i =0; i<one.size();i++){
+            System.out.print(one.get(i));
+
 
         }
+        System.out.println();
+        for(int i =0; i<one.size();i++){
+            System.out.print(two.get(i));
 
+
+        }
+        /*for(int i=0; i<one.size(); i++) {
+            int a= (int) one.get(i);
+            int b = (int) one.get((one.size()-i)-1);
+            one.remove(i);
+            one.add(i,b);
+            one.remove((one.size()-i)-1);
+            one.add((one.size()-i)-1,a);
+            values[val]= (int) one.get(i);
+            val++;
+        }
+        for(int i=0; i<two.size(); i++) {
+            int a= (int) two.get(i);
+            int b = (int) two.get((two.size()-i)-1);
+            two.remove(i);
+            two.add(i,b);
+            two.remove((two.size()-i)-1);
+            two.add((two.size()-i)-1,a);
+            values[val]= (int) two.get(i);
+            val++;
+        }*/
 
     }
 
