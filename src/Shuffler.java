@@ -67,27 +67,14 @@ public class Shuffler {
             }
         }
         for (int i = 0; i < one.size(); i++) {
-            values[i] =(int) one.get(i);
+            values[i] = (int) one.get(i);
         }
         for (int i = 0; i < two.size(); i++) {
-            values[i+one.size()] =(int) two.get(i);
+            values[i + one.size()] = (int) two.get(i);
         }
-
-
-
-       /* finala[0] = (int) one.get((int)(Math.random()*one.size()));
-        finala[1] = (int) two.get((int)(Math.random()*two.size()));
-        finala[2] = (int) one.get((int)(Math.random()*one.size()));
-        finala[3] = (int) two.get((int)(Math.random()*two.size()));
-        values[0] = finala[0];
-        values[1] = finala[1];
-        values[2] = finala[2];
-        values[3] = finala[3];*/
-
 
 
     }
-
     /**
      * Apply an "efficient selection shuffle" to the argument.
      * The selection shuffle algorithm conceptually maintains two sequences
@@ -102,32 +89,12 @@ public class Shuffler {
      */
     public static void selectionShuffle(int[] values) {
         /* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-        ArrayList one = new ArrayList();
-        ArrayList two = new ArrayList();
-        int finala[] = new int[values.length];
-        int val = 0;
-        for (int i = 0; i < values.length; i++) {
-            if (i % 2 == 0) {
-                one.add(values[i]);
-            } else {
-                two.add(values[i]);
-            }
-        }
-        for (int i = 0; i < values.length; i++) {
-            if (i % 2 == 0) {
-                int cat = (int) (Math.random() * one.size());
-                int dog = (int) one.get(cat);
-                finala[i] = dog;
-                one.remove(cat);
-                values[i] = finala[i];
-            } else {
-                int cat = (int) (Math.random() * two.size());
-                int dog = (int) two.get(cat);
-                finala[i] = dog;
-                two.remove(cat);
-                values[i] = finala[i];
+        for (int k = values.length - 1; k > 0; k--) {
+            int n = (int) (Math.random() * (k + 1));
+            int hold = values[k];
+            values[k] = values[n];
+            values[n] = hold;
 
-            }
         }
 
 
